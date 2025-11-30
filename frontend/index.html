@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TanggapAI - Customer Feedback Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎯 TanggapAI</h1>
+            <p class="subtitle">Enterprise Customer Feedback Analyzer</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Analysis Section -->
+            <section class="analysis-section">
+                <h2>Analyze Feedback</h2>
+                <form id="feedbackForm" class="feedback-form">
+                    <div class="form-group">
+                        <label for="feedbackInput">Customer Feedback:</label>
+                        <textarea id="feedbackInput" name="feedback" rows="4"
+                            placeholder="Enter customer feedback here... (e.g., 'Website slow during peak hours')"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="analyzeBtn">
+                        <span class="btn-text">Analyze Feedback</span>
+                        <span class="btn-loader" style="display: none;">Analyzing...</span>
+                    </button>
+                </form>
+
+                <!-- Analysis Result -->
+                <div id="analysisResult" class="analysis-result" style="display: none;">
+                    <h3>Analysis Result</h3>
+                    <div class="result-grid">
+                        <div class="result-card">
+                            <div class="result-label">Sentiment</div>
+                            <div class="result-value" id="resultSentiment">-</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Category</div>
+                            <div class="result-value" id="resultCategory">-</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Priority</div>
+                            <div class="result-value" id="resultPriority">-</div>
+                        </div>
+                    </div>
+                    <div class="result-details">
+                        <div class="detail-item">
+                            <strong>Keywords:</strong>
+                            <div id="resultKeywords" class="keywords-container"></div>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Root Cause:</strong>
+                            <p id="resultRootCause">-</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Recommendation:</strong>
+                            <p id="resultRecommendation">-</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Summary:</strong>
+                            <p id="resultSummary">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section">
+                <div class="history-header">
+                    <h2>Feedback History</h2>
+                    <div class="history-controls">
+                        <select id="filterSentiment" class="filter-select">
+                            <option value="">All Sentiments</option>
+                            <option value="positive">Positive</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="negative">Negative</option>
+                        </select>
+                        <select id="filterCategory" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="product">Product</option>
+                            <option value="service">Service</option>
+                            <option value="payment">Payment</option>
+                            <option value="technical">Technical</option>
+                        </select>
+                        <button id="refreshBtn" class="btn btn-secondary">Refresh</button>
+                    </div>
+                </div>
+
+                <div id="historyTable" class="history-table">
+                    <div class="loading">Loading feedback history...</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with ❤️ using Google ADK + Gemma 3 4B + BigQuery</p>
+        </footer>
+    </div>
+
+    <!-- Load config first, then app -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
