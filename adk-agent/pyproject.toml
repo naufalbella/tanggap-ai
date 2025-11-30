@@ -1,0 +1,22 @@
+[project]
+name = "tanggap-ai-adk-agent"
+version = "1.0.0"
+description = "TanggapAI - Enterprise Customer Feedback Analyzer and Root Cause Intelligence"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk>=1.12.0",
+    "python-dotenv>=1.1.0",
+    "google-auth>=2.23.0",
+    "litellm>=1.77.0",
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "pydantic>=2.0.0",
+    "google-genai>=1.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.1.0",
+]
